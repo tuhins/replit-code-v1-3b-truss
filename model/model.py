@@ -4,16 +4,13 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 class Model:
-    def __init__(self, **kwargs) -> None:
-        self._data_dir = kwargs["data_dir"]
-        self._config = kwargs["config"]
-        self._secrets = kwargs["secrets"]
+    def __init__(self) -> None:
         self._model = None
         self._tokenizer = None
 
     def load(self):
-        self._model = AutoModelForCausalLM.from_pretrained('replit/replit-code-v1-3b', trust_remote_code=True)
         self._tokenizer = AutoTokenizer.from_pretrained('replit/replit-code-v1-3b', trust_remote_code=True)
+        self._model = AutoModelForCausalLM.from_pretrained('replit/replit-code-v1-3b', trust_remote_code=True)
         self._model.to("cuda")
 
     def predict(self, model_input: Any, max_length=100, do_sample=True, top_p=0.95, top_k=4, temperature=0.2, num_return_sequences=1) -> str:
