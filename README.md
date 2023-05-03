@@ -19,8 +19,8 @@ baseten.login("*** BASETEN API KEY ***")
 import baseten
 import truss
 
-bark_handle = truss.load(".")
-baseten.deploy(bark_handle, model_name="Replit Code V1 (3B)")
+codegen_handle = truss.load(".")
+baseten.deploy(codegen_handle, model_name="Replit Code V1 (3B)")
 ```
 
 ## Hardware
