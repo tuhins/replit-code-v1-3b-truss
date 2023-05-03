@@ -1,4 +1,4 @@
-# Deploy Replit's Code Generation (replit-code-v1-3b) with Baseten
+# Deploy Replit's Code Generation LLM (replit-code-v1-3b) with Baseten
 
 ## Pre-reqs
 * Set up a [Baseten](https://www.baseten.co) account
