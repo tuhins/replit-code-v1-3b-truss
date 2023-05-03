@@ -1,4 +1,4 @@
-# Deploy Replit's Code Generation LLM (replit-code-v1-3b) with Baseten
+# Deploy Replit's Code Completion LM (replit-code-v1-3b) with Baseten
 
 ## Pre-reqs
 * Set up a [Baseten](https://www.baseten.co) account
@@ -19,8 +19,8 @@ baseten.login("*** BASETEN API KEY ***")
 import baseten
 import truss
 
-codegen_handle = truss.load(".")
-baseten.deploy(codegen_handle, model_name="Replit Code V1 (3B)")
+replitlm_handle = truss.load(".")
+baseten.deploy(replitlm_handle, model_name="Replit Code Completion V1 (3B)")
 ```
 
 ## Hardware
