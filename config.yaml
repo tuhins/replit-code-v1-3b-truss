@@ -1,3 +1,6 @@
+base_image:
+  image: nvcr.io/nvidia/nemo:23.03
+  python_executable_path: /usr/bin/python
 bundled_packages_dir: packages
 data_dir: data
 description: null
@@ -9,15 +12,22 @@ live_reload: false
 model_class_filename: model.py
 model_class_name: Model
 model_framework: custom
-model_metadata: {}
+model_metadata:
+  example_model_input: {"prompt": "# Write a python function that prints hello world\n", "do_sample": True, "max_new_tokens": 300}
+  # avatar_url: https://cdn.baseten.co/production/static/explore/wizard.png
+  # cover_image_url: https://cdn.baseten.co/production/static/explore/wizardlm.png
+  tags:
+  - code-generation
 model_module_dir: model
 model_name: null
 model_type: custom
-python_version: py39
+python_version: py311
+# hf_cache:
+#   repo_id: replit/replit-code-v1-3b
 requirements:
+- flash-attn==0.2.8
+- triton==2.0.0.dev20221202
 - transformers
-- torch
-- triton
 - sentencepiece
 - einops
 resources:
@@ -28,13 +38,3 @@ resources:
 secrets: {}
 spec_version: '2.0'
 system_packages: []
-train:
-  resources:
-    accelerator: null
-    cpu: 500m
-    memory: 512Mi
-    use_gpu: false
-  training_class_filename: train.py
-  training_class_name: Train
-  training_module_dir: train
-  variables: {}
